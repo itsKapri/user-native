@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1014229566732",
+    "project_id": "notify-aaf37",
+    "storage_bucket": "notify-aaf37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014229566732:android:c3dc74a3a5eecd2727b529",
+        "android_client_info": {
+          "package_name": "com.nilesh.userNative"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6frlNF2gKuqIWg_u0JAFaU6hkop7x_v0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
