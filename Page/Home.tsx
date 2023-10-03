@@ -5,12 +5,12 @@ import img_logo from '../assets/edba.png';
 
 const { height, width } = Dimensions.get('window');
 
-interface Props {
-    navigation: any
-  }
+// interface Props {
+//     navigation: unknown
+//   }
 
 
-const Home = ({ navigation }:Props) => {
+const Home = ({ navigation }) => {
   const [selectedBus, setSelectedBus] = useState("Select the Bus");
 
  

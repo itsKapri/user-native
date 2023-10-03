@@ -18,8 +18,8 @@
       "supportsTablet": true
     },
     "android": {
-      "googleServicesFile":"./google-services.json",
-      "package": "com.nilesh.usernative",
+      "googleServicesFile": "./google-services.json",
+      "package": "com.nilesh.userNative",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"

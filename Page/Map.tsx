@@ -3,9 +3,8 @@ import { View, StyleSheet, Dimensions, Image, Alert } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import axios from "axios";
 import img_logo from "../assets/edba.png";
-import messaging from '@react-native-firebase/messaging'
-
 const { height, width } = Dimensions.get("window");
+
 
 const Map= (props: {
   route: {
@@ -15,7 +14,7 @@ const Map= (props: {
   };
 }) => {
   const { selectedBus } = props.route.params;
-  
+
   // Initialize locationData state with null
   const [locationData, setLocationData] = useState<null | Record<any, any>>({
     latitude:19.4177,
@@ -53,54 +52,54 @@ const Map= (props: {
     longitudeDelta: 0.0421,
   };
 
-  const requestUserPermission = async () => {
-    const authStatus = await messaging().requestPermission();
-  const enabled =
-    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+  // const requestUserPermission = async () => {
+  //   const authStatus = await messaging().requestPermission();
+  // const enabled =
+  //   authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+  //   authStatus === messaging.AuthorizationStatus.PROVISIONAL;
 
-  if (enabled) {
-    console.log('Authorization status:', authStatus);
-  }
-  }
-  useEffect(() => {
-    if(requestUserPermission()){
-      messaging().getToken().then(token => {
-        console.log(token)
-      })
-    }else{
-      console.log('failed to gen token')
-    }
+  // if (enabled) {
+  //   console.log('Authorization status:', authStatus);
+  // }
+  // }
+  // useEffect(() => {
+  //   if(true){
+  //     messaging().getToken().then(token => {
+  //       console.log(token)
+  //     })
+  //   }else{
+  //     console.log('failed to gen token')
+  //   }
 
-    messaging()
-      .getInitialNotification()
-      .then(remoteMessage => {
-        if (remoteMessage) {
-          console.log(
-            'Notification caused app to open from quit state:',
-            remoteMessage.notification,
-          );
-        }
-      });
+  //   messaging()
+  //     .getInitialNotification()
+  //     .then(remoteMessage => {
+  //       if (remoteMessage) {
+  //         console.log(
+  //           'Notification caused app to open from quit state:',
+  //           remoteMessage.notification,
+  //         );
+  //       }
+  //     });
  
-      messaging().onNotificationOpenedApp(async remoteMessage => {
-        console.log(
-          'Notification caused app to open from background state:',
-          remoteMessage.notification,
-        );
-      });
+  //     messaging().onNotificationOpenedApp(async remoteMessage => {
+  //       console.log(
+  //         'Notification caused app to open from background state:',
+  //         remoteMessage.notification,
+  //       );
+  //     });
 
-      messaging().setBackgroundMessageHandler(async remoteMessage => {
-        console.log('Message handled in the background!', remoteMessage);
-      });
+  //     messaging().setBackgroundMessageHandler(async remoteMessage => {
+  //       console.log('Message handled in the background!', remoteMessage);
+  //     });
 
-      const unsubscribe = messaging().onMessage(async remoteMessage => {
-        Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-      });
+  //     const unsubscribe = messaging().onMessage(async remoteMessage => {
+  //       Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+  //     });
   
-      return unsubscribe;
+  //     return unsubscribe;
       
-  }, [])
+  // }, [])
   return (
     <View style={{ flex: 1, backgroundColor: "#E4F1FF" }}>
       <View
