@@ -8,7 +8,7 @@ import Map from './Page/Map';
 const Stack=createNativeStackNavigator();
 
 export default function App() {
-
+ ///
 
   return (
     <NavigationContainer>
